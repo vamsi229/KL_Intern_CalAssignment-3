@@ -1,0 +1,48 @@
+
+<!DOCTYPE html>
+<html >
+<style>
+    .in{
+    background-color:cornflowerblue;
+    font-size:20px;
+    }
+</style>
+<body style="background-color:blanchedalmond;" align="center">
+    <p style="font-size:35px;">Calculator</p>
+<div class="in">
+<form method="Post" action="{{ url_for('operation_result') }}" id="calculator_form">
+<br/>
+<label for="a" > Input a:- </label>
+<input type="text" name="a" id="a" required>
+<br/><br/>
+<label for="b" > Input b:- </label>
+<input type="text" name="b" id="b" required>
+<br/><br/>
+<label for="operation" > operation</label>
+<select id ="operation" name="operation">
+<option value="+"> Addtition</option>
+<option value="*"> Multiplication</option>
+<option value="-"> Subraction</option>
+<option value="/"> Divison</option>
+<option value="%"> Modulus</option>
+<option value="**"> Power</option>
+</select>
+<br/><br/>
+<input type="submit" value="submit"/>&nbsp;
+<input type="reset" value="reset" style="color: red;"/>
+</form>
+<br/>
+</div>
+</form>
+{% if caliculation_success== True %}
+<br/>
+<p>Result:- The calculation for {{a}} {{operation}} {{b}} is:{{result}}</p>
+{% endif %}
+{% if calculation_success==False%}
+<br/>
+<p>{{error}}</p>
+<p> {{a}} {{operation}} {{b}} = "{{result}}"</p>
+{% endif %}
+</body>
+
+</html>
